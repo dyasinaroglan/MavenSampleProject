@@ -27,7 +27,7 @@ public class Robot_04 {
         Thread.sleep(1000);
         driver.findElement(By.id("file_wraper0")).click();
 
-        StringSelection str = new StringSelection("C:\\Users\\yasin\\Desktop\\Selendı.png");
+        StringSelection str = new StringSelection("C:\\Users\\yasin\\Desktop\\Selendı.png"); //ekleyeceğimiz dosyanın path'ını yazıyoruz.
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str,null);
 
         sleep(1000);
@@ -43,6 +43,9 @@ public class Robot_04 {
         driver.findElement(By.id("submitbutton")).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#res")));
+
+      //  if(!driver.findElement(By.cssSelector("html")).getText().contains("successfully uploaded"))
+         // throw new RuntimeException("upload başarısız");
 
         Driver.quitDriver();
 

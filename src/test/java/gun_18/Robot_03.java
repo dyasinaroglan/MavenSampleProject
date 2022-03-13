@@ -19,8 +19,5 @@ public class Robot_03 {
         robot.keyRelease(KeyEvent.VK_CONTROL);
 
 
-
-
-
     }
 }
