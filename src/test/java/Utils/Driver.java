@@ -3,6 +3,7 @@ package Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -13,17 +14,25 @@ public class Driver {
 
     private static WebDriver driver;
 
-    public static WebDriver getDriver() {
+  public static WebDriver getDriver() {
         return getDriver(Browsers.CHROME);
     }
+
+
 
 
     public static WebDriver getDriver(Browsers browser) {
         if (driver == null) {
             switch (browser) {
-                case FIREFOX:
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                case CHROME:
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    break;
+                case CHROMEMOBILE:
+                    WebDriverManager.chromedriver().setup();
+                    ChromeOptions options = new ChromeOptions();
+                    options.setExperimentalOption("androidPackage", "com.android.chrome");
+                    driver = new ChromeDriver(options);
                     break;
                 case OPERA:
                     WebDriverManager.operadriver().setup();
@@ -31,15 +40,17 @@ public class Driver {
                     break;
                 case EDGE:
                     WebDriverManager.edgedriver().setup();
+                    ChromeOptions options3 = new ChromeOptions();
+                    options3.addArguments("--headless");
                     driver = new EdgeDriver();
                     break;
                 case IE:
                     WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
                     break;
-                case CHROME:
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                case FIREFOX:
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
                     break;
             }
         }

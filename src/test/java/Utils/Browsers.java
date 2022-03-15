@@ -1,5 +1,5 @@
 package Utils;
 
 public enum Browsers {
-    CHROME, FIREFOX, OPERA, EDGE, SAFARI, IE;
+    CHROME, FIREFOX, OPERA, EDGE, SAFARI, IE, CHROMEMOBILE;
 }
