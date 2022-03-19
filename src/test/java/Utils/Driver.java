@@ -18,9 +18,6 @@ public class Driver {
         return getDriver(Browsers.CHROME);
     }
 
-
-
-
     public static WebDriver getDriver(Browsers browser) {
         if (driver == null) {
             switch (browser) {

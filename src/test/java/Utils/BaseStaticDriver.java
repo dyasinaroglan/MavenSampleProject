@@ -63,6 +63,7 @@ public class BaseStaticDriver {
     public static void takeScreenShotByRobot(Rectangle rectangle) throws AWTException, IOException {
         Robot robot = new Robot();
 
+
         //bütün ekranı aldım. kaydedilecek ekran alanını belirliyoruz.
         BufferedImage image = robot.createScreenCapture(rectangle);
         //ekranda belirlenen dikdörtgeni resim olarak buffer'a atar.
